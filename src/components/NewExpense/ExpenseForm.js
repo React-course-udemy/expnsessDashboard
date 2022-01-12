@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../css/ExpenseForm.css";
 
-const ExpenseForm = ({ onSaveExpenseData }) => {
+const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
   const [enteredTitle, setTitle] = useState(""),
     [enteredAmount, setAmount] = useState(""),
     [enteredDate, setEnteredDate] = useState("");
+
+    useEffect(() => {
+      console.log('comoponent did mount')
+      return () => {
+        console.log('component will unmount => trigger when unmount')
+      }
+    }, [])
+
+    useEffect(() => {
+      console.log('comoponent did mount and component did update when enteredTitle change')
+    }, [enteredTitle])
+
+    useEffect(() => {
+      console.log('comoponent did mount and component did update on any change')
+    })
 
   //   const [userInput, setUserInput] = useState({
   //     title: "",
@@ -42,6 +57,9 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
     setAmount("");
     setEnteredDate("");
   };
+  const cancelHandler =()=>{
+    onCancel();
+  }
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
@@ -75,7 +93,9 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
         </div>
       </div>
       <div className="new-expense__actions">
+      <button onClick={cancelHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
+        
       </div>
     </form>
   );

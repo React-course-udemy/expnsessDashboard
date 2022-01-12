@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../css/NewExpense.css'
-import ExpenseForm from './ExpenseForm';
+import ExpenseFormModal from './ExpenseFormModal';
 
 const NewExpense = ({onAddExpense}) => {
     const saveExpenseDataHandler =(enteredExpenseData)=>{
@@ -12,7 +12,7 @@ const NewExpense = ({onAddExpense}) => {
         }
     return (
         <div className="new-expense">
-            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler}/>
+            <ExpenseFormModal onSaveExpenseData={saveExpenseDataHandler}/>
         </div>
     );
 };
