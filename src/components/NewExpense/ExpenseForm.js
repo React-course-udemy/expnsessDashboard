@@ -6,20 +6,6 @@ const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
     [enteredAmount, setAmount] = useState(""),
     [enteredDate, setEnteredDate] = useState("");
 
-    useEffect(() => {
-      console.log('comoponent did mount')
-      return () => {
-        console.log('component will unmount => trigger when unmount')
-      }
-    }, [])
-
-    useEffect(() => {
-      console.log('comoponent did mount and component did update when enteredTitle change')
-    }, [enteredTitle])
-
-    useEffect(() => {
-      console.log('comoponent did mount and component did update on any change')
-    })
 
   //   const [userInput, setUserInput] = useState({
   //     title: "",
@@ -48,7 +34,7 @@ const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
     e.preventDefault();
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
     onSaveExpenseData(expenseData);

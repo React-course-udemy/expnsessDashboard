@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ExpenseFormModal from "./components/NewExpense/ExpenseFormModal"
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
