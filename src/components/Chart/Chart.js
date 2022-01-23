@@ -7,6 +7,7 @@ const Chart = ({ dataPoints }) => {
   return (
     <div className="chart">
       {dataPoints.map((dataPoint) => (
+        
         <ChartBar
           key={dataPoint.label}
           value={dataPoint.value}

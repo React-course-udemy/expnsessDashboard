@@ -4,8 +4,8 @@ import "../../css/ChartBar.css";
 const ChartBar = ({ label, value, maxValue }) => {
   let barFillHight = "0%";
 
-  if ({ maxValue } > 0) {
-    barFillHight = Math.round(({ value } / { maxValue }) * 100) + "%";
+  if (maxValue > 0) {
+    barFillHight = Math.round((value / maxValue) * 100) + "%";
   }
   return (
     <div className="chart-bar">
